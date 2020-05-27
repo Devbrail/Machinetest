@@ -34,6 +34,7 @@ public class EmployeeDetails extends AppCompatActivity {
         website=findViewById(R.id.website);
         name=findViewById(R.id.name);
         profile=findViewById(R.id.profile);
+        company=findViewById(R.id.company);
 
         Bundle b=this.getIntent().getExtras();
 
@@ -44,6 +45,9 @@ public class EmployeeDetails extends AppCompatActivity {
         email.setText(employee.getEmail());
         address.setText(employee.getAddres());
         uname.setText(employee.getUsername());
+        phone.setText(employee.getPhone());
+        website.setText(employee.getWebsite());
+        company.setText(employee.getCompany().getName());
 
         Glide.with(this).
                 load(employee.getProfileImage()).

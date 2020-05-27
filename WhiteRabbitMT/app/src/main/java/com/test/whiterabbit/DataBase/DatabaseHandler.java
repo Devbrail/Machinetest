@@ -142,7 +142,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         Constants.Db.KEY_PROFILE_URL,
                         Constants.Db.EMAIL,
                         Constants.Db.ADDR,
-                        Constants.Db.UNAME
+                        Constants.Db.UNAME,
+                        Constants.Db.PHONE,
+                        Constants.Db.WEB,
+                        Constants.Db.COMPANY_NAME
 
                 }, Constants.Db.KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
@@ -159,6 +162,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
        employee.setEmail(cursor.getString(3));
         employee.setAddres(cursor.getString(4));
         employee.setUsername(cursor.getString(5));
+        employee.setPhone(cursor.getString(5));
+        employee.setWebsite(cursor.getString(6));
+        company.setName(cursor.getString(7));
+        employee.setCompany(company);
 
 //        company.setName(cursor.getString(3));
 //
