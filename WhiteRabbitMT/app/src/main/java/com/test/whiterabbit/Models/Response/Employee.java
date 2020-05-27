@@ -33,11 +33,17 @@ public class Employee {
     @Expose
     private Company company;
 
-    public void setAddress(String address) {
-        Address = address;
+
+
+    public String getAddres() {
+        return addres;
     }
 
-    String Address;
+    public void setAddres(String addres) {
+        this.addres = addres;
+    }
+
+    String addres;
 
 
     public Integer getId() {

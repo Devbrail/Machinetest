@@ -87,7 +87,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         if(employee.getAddress()!=null){
             Employee.Address address= employee.getAddress();
-            addres = address.getStreet()+address.getSuite()+address.getCity();
+            addres = address.getStreet()+" , "+address.getSuite()+" , "+address.getCity();
 
         }
 
@@ -118,7 +118,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 company.setName(cursor.getString(3));
                 employee.setEmail(cursor.getString(4));
 
-                employee.setAddress(cursor.getString(5));
+                employee.setAddres(cursor.getString(5));
                 employee.setPhone(cursor.getString(6));
                 employee.setUsername(cursor.getString(7));
                 employee.setWebsite(cursor.getString(8));
@@ -136,8 +136,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
    public  Employee getEmployee(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(Constants.Db.TABLE_employeeS, new String[] { Constants.Db.KEY_ID,
-                        Constants.Db.KEY_NAME,Constants.Db.KEY_PROFILE_URL}, Constants.Db.KEY_ID + "=?",
+        Cursor cursor = db.query(Constants.Db.TABLE_employeeS, new String[] {
+                Constants.Db.KEY_ID,
+                        Constants.Db.KEY_NAME,
+                        Constants.Db.KEY_PROFILE_URL,
+                        Constants.Db.EMAIL,
+                        Constants.Db.ADDR,
+                        Constants.Db.UNAME
+
+                }, Constants.Db.KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -149,11 +156,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         employee.setId(Integer.parseInt(cursor.getString(0)));
         employee.setName(cursor.getString(1));
         employee.setProfileImage(cursor.getString(2));
+       employee.setEmail(cursor.getString(3));
+        employee.setAddres(cursor.getString(4));
+        employee.setUsername(cursor.getString(5));
 
 //        company.setName(cursor.getString(3));
-//        employee.setEmail(cursor.getString(4));
 //
-//        employee.setAddress(cursor.getString(5));
 //        employee.setPhone(cursor.getString(6));
 //        employee.setUsername(cursor.getString(7));
 //        employee.setWebsite(cursor.getString(8));
