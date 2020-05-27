@@ -121,6 +121,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 employee.setAddres(cursor.getString(5));
                 employee.setPhone(cursor.getString(6));
                 employee.setUsername(cursor.getString(7));
+
                 employee.setWebsite(cursor.getString(8));
 
                 employee.setCompany(company);
@@ -162,9 +163,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
        employee.setEmail(cursor.getString(3));
         employee.setAddres(cursor.getString(4));
         employee.setUsername(cursor.getString(5));
-        employee.setPhone(cursor.getString(5));
-        employee.setWebsite(cursor.getString(6));
-        company.setName(cursor.getString(7));
+        employee.setPhone(cursor.getString(6));
+        employee.setWebsite(cursor.getString(7));
+        company.setName(cursor.getString(8));
         employee.setCompany(company);
 
 //        company.setName(cursor.getString(3));
